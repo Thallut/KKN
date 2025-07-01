@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <header>
+        <div class="left-nav">
+            <div class="menu-toggle" onclick="toggleMenu(this)">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="logo-circle">
+                <img src="1751300132183.jpg" alt="Logo KKN" class="logo-img">
+            </div>
+            <div class="logo-text">BUMANTARANGGANA</div> <!-- ini teks -->
+        </div>
+    </header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKN Desa Cikareo 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(270deg, #00f5ff, #ff00ff, #ffff00, #00f5ff);
+            background-size: 800% 800%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2a0845 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: bold;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .left-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1rem 1rem 1.5rem;
+            justify-content: flex-start;
+        }
+        .tab-btn:hover::before {
+            left: 100%;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            border-color: #00f5ff;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 150px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 120px;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hologram-effect {
+            background: linear-gradient(45deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 255, 0.1));
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hologram-effect::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Members Grid */
+        .bph-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .divisi-section {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .navigation-buttons {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .navigation-buttons button {
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: #00f5ff;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .navigation-buttons button:hover {
+            background: #ff00ff;
+            color: #fff;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .member-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00f5ff, #ff00ff, #ffff00);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .member-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+            border-color: rgba(0, 245, 255, 0.5);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #000;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #00f5ff;
+        }
+
+        .member-role {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .member-nim {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Vision Mission */
+        .vision-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 2rem 0;
+        }
+
+        .vision-card, .mission-card {
+            background: linear-gradient(145deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 255, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-content {
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Main Page Styles */
+        .main-page {
+            padding-top: 150px;
+            min-height: calc(100vh - 120px);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .top-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .left-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 1.2rem;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .logo-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #00f5ff, #ff00ff);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        .center-title {
+            text-align: center;
+            flex: 1;
+            margin: 0 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .main-image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 2px solid rgba(0, 245, 255, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .slideshow {
+            position: relative;
+        }
+
+        .slide-image {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide-image.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+
+
+        .main-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.2), transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        .image-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: rgba(255, 255, 255, 0.7);
+            gap: 1rem;
+        }
+
+        .image-placeholder .icon {
+            font-size: 4rem;
+            opacity: 0.8;
+        }
+
+        .image-placeholder p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .location-section {
+            background: linear-gradient(145deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 255, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(15px);
+        }
+
+        .location-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .location-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: center;
+        }
+
+        .location-label {
+            font-size: 1rem;
+            color: #00f5ff;
+            font-weight: 600;
+        }
+
+        .location-value {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        /* Responsive untuk main page */
+        @media (max-width: 768px) {
+            .top-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .center-title {
+                margin: 0;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .left-logo {
+                justify-content: center;
+            }
+
+            .location-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-tabs {
+                gap: 1rem;
+            }
+
+            .tab-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .vision-mission {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        .menu-toggle {
+            width: 30px;
+            height: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 5px;
+            margin-left: 50px;
+            transition: transform 0.4s;
+        }
+
+        .menu-toggle .bar {
+            height: 4px;
+            width: 100%;
+            background-color: #00f5ff;
+            border-radius: 2px;
+            transition: 0.4s;
+        }
+
+        .menu-toggle.active {
+            transform: rotate(90deg);
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 90px;
+            left: -220px;
+            width: 200px;
+            background: rgba(15, 15, 35, 0.95);
+            padding: 2rem 2rem 1rem; /* padding atas diperbesar */
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: left 0.4s ease;
+            z-index: 999;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .side-menu.show {
+            left: 0;
+        }
+
+        .social-bubble {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .social-bubble button {
+            background-color: #ff00ff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+            transition: background 0.3s ease;
+        }
+
+        .social-bubble button:hover {
+            background-color: #00f5ff;
+        }
+
+        .social-links {
+            margin-top: 10px;
+            background-color: rgba(30, 30, 60, 0.95);
+            border-radius: 12px;
+            padding: 10px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #00f5ff;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="side-menu" class="side-menu">
+            <button class="tab-btn" onclick="openTab(event, 'home')">Beranda</button>
+            <button class="tab-btn" onclick="openTab(event, 'members')">Anggota</button>
+            <button class="tab-btn" onclick="openTab(event, 'vision')">Visi & Misi</button>
+        </div>
+    <main class="container">
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <section class="main-page">
+                <div class="top-section">
+                    <div class="center-title">
+                        <h1 class="main-title">KKN DESA CIKAREO 2025</h1>
+                        <p class="subtitle">Membangun Masa Depan Desa Melalui Teknologi</p>
+                    </div>
+                </div>
+
+                <div class="main-image-section">
+                    <div class="image-container">
+                        <div class="main-image slideshow">
+                        <img class="slide-image" src="1.jpg">
+                        <img class="slide-image" src="2.jpg">
+                        <img class="slide-image" src="3.jpg">
+                        <button class="prev" onclick="plusSlides(-1)">❮</button>
+                        <button class="next" onclick="plusSlides(1)">❯</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="location-section">
+                    <div class="location-info">
+                        <div class="location-item">
+                            <span class="location-label">📍 Lokasi KKN:</span>
+                            <span class="location-value">Desa Cikareo Kec. Solear</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">📅 Periode:</span>
+                            <span class="location-value">Juli - Agustus 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Members Tab -->
+        <div id="members" class="tab-content">
+            <section class="hero">
+                <h1 class="hero-title">Struktur Organisasi</h1>
+                <p class="hero-subtitle">Klik Next untuk melihat divisi lainnya</p>
+            </section>
+
+            <div class="divisi-section">
+                <h2 class="hero-subtitle" id="divisi-title">BPH</h2>
+
+                <div id="divisi-members">
+                <!-- JS akan isi otomatis -->
+                </div>
+
+                <div class="navigation-buttons">
+                <button onclick="prevDivisi()">❮</button>
+                <button onclick="nextDivisi()">❯</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Vision Mission Tab -->
+        <div id="vision" class="tab-content">
+            <section class="hero">
+                <h1 class="hero-title">Visi & Misi</h1>
+                <p class="hero-subtitle">Landasan dan arah pergerakan KKN Desa Digital 2025</p>
+            </section>
+
+            <div class="vision-mission">
+                <div class="vision-card">
+                    <h2 class="card-title">VISI</h2>
+                    <div class="card-content">
+                        <p>
+                            Menjadi pionir dalam transformasi digital pedesaan yang berkelanjutan, 
+                            menciptakan ekosistem desa cerdas yang mandiri, sejahtera, dan berdaya saing tinggi 
+                            melalui pemanfaatan teknologi informasi dan komunikasi yang inovatif serta 
+                            pemberdayaan masyarakat yang komprehensif.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mission-card">
+                    <h2 class="card-title">MISI</h2>
+                    <div class="card-content">
+                        <p style="margin-bottom: 1rem;">
+                            <strong>1. Digitalisasi Layanan Desa</strong><br>
+                            Mengembangkan dan mengimplementasikan sistem informasi desa yang terintegrasi 
+                            untuk meningkatkan efisiensi pelayanan publik.
+                        </p>
+                        <p style="margin-bottom: 1rem;">
+                            <strong>2. Pemberdayaan Ekonomi Digital</strong><br>
+                            Memfasilitasi UMKM lokal untuk go digital melalui pelatihan e-commerce 
+                            dan pemasaran online.
+                        </p>
+                        <p style="margin-bottom: 1rem;">
+                            <strong>3. Edukasi Literasi Digital</strong><br>
+                            Menyelenggarakan program pelatihan teknologi untuk meningkatkan 
+                            kemampuan digital masyarakat.
+                        </p>
+                        <p>
+                            <strong>4. Inovasi Berkelanjutan</strong><br>
+                            Menciptakan solusi teknologi adaptif yang sesuai dengan kebutuhan 
+                            dan karakteristik desa setempat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let slideIndex = 0;
+        let slides = document.getElementsByClassName("slide-image");
+
+        function showSlide(n) {
+            for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("active");
+            }
+            slides[n].classList.add("active");
+        }
+
+        function plusSlides(n) {
+            slideIndex = (slideIndex + n + slides.length) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        function autoSlide() {
+            plusSlides(1);
+            setTimeout(autoSlide, 5000); // ganti tiap 5 detik
+        }
+
+        // Start when page loads
+        window.addEventListener("load", () => {
+            slides[0].classList.add("active");
+            autoSlide();
+        });
+
+        function toggleMenu(el) {
+            el.classList.toggle('active');
+            const menu = document.getElementById('side-menu');
+            menu.classList.toggle('show');
+        }
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // Show the selected tab and mark button as active
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Create floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            particle.style.width = Math.random() * 4 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = `linear-gradient(45deg, ${Math.random() > 0.5 ? '#00f5ff' : '#ff00ff'}, transparent)`;
+            particle.style.borderRadius = '50%';
+            
+            document.body.appendChild(particle);
+            
+            // Animate particle
+            particle.style.animation = `float ${Math.random() * 3 + 3}s ease-in-out infinite`;
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 6000);
+        }
+
+        const divisiData = [
+        {
+            nama: 'BPH',
+            anggota: [
+            { nama: 'Muhammad Ali Huzaifi', alias: 'Ali', jabatan: 'Ketua', foto: 'Ali.png' },
+            { nama: 'Azkiya Zahra Salsabila', alias: 'Kiya', jabatan: 'Wakil Ketua', foto: 'Azkiya.png' },
+            { nama: 'Ghina Khoyrunnisa', alias: 'Ghina', jabatan: 'Sekretaris', foto: 'ghina.png' },
+            { nama: 'Aini Latifah', alias: 'Aini', jabatan: 'Bendahara', foto: 'Aini-Latifah.png' }
+            ]
+        },
+        {
+            nama: 'Divisi Acara',
+            anggota: [
+            { nama: 'Sulaiman Malik Dinar', alias: 'Dinar', jabatan: 'Koor Acara', foto: 'dinar.png' },
+            { nama: 'Muhammad Naufal Sidik', alias: 'AA1', jabatan: 'Anggota', foto: 'naufal.png' },
+            { nama: 'Annisa Rizky Sumpena', alias: 'AA2', jabatan: 'Anggota', foto: 'Annisa.jpg' }
+            ]
+        },
+        {
+            nama: 'Divisi Humas',
+            anggota: [
+            { nama: 'Viecky Alan Al-Fath', alias: 'Vicky', jabatan: 'Koor Humas', foto: 'piki.png' },
+            { nama: 'Adhinda Syakiratul R.A', alias: 'AH', jabatan: 'Anggota', foto: 'adinda.png' },
+            { nama: 'Anggrian', alias: 'AH', jabatan: 'Anggota', foto: 'anggrian.png' }
+            ]
+        },
+        {
+            nama: 'Divisi PDD',
+            anggota: [
+            { nama: 'Ati Syabriyanti H', alias: 'Syabri', jabatan: 'Koor PDD' },
+            { nama: 'Ummi Kultsum', alias: 'umi', jabatan: 'Anggota', foto: 'umi.png' }
+            ]
+        },
+        {
+            nama: 'Divisi Konsumsi',
+            anggota: [
+            { nama: 'Aisah Muhsiningtyas', alias: 'Aisah', jabatan: 'Koor Konsum', foto: 'aisah.png' },
+            { nama: 'Ahmad kada Alfainji U.N', alias: 'AH', jabatan: 'Anggota', foto: 'elfan.png' }
+            ]
+        },
+        {
+            nama: 'Divisi Perlap',
+            anggota: [
+            { nama: 'Thallut Malik Khatam', alias: 'Thallut', jabatan: 'Koor Perlap', foto: 'Thallut.png' },
+            { nama: 'Muhammad Yunus', alias: 'AH', jabatan: 'Anggota', foto: 'yunus.png' },
+            { nama: 'Ido Cahyo Pratama', alias: 'AH', jabatan: 'Anggota', foto: 'ido.jpeg' }
+            ]
+        },
+        ];
+
+
+        let currentDivisi = 0;
+
+        function renderDivisi(index) {
+        const container = document.getElementById("divisi-members");
+        const title = document.getElementById("divisi-title");
+        container.innerHTML = "";
+
+        const divisi = divisiData[index];
+        title.innerText = divisi.nama;
+
+        const koor = divisi.anggota.find(a =>
+            a.jabatan.toLowerCase().includes("koor") ||
+            a.jabatan.toLowerCase().includes("ketua")
+        );
+        const anggotaLain = divisi.anggota.filter(a => a !== koor);
+
+        if (koor) {
+            container.innerHTML += `
+            <div class="koor-wrapper" style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                <div class="member-card" style="width: 240px;">
+                <img src="${koor.foto}" alt="${koor.nama}" style="width: 100%; border-radius: 15px; object-fit: cover; margin-bottom: 1rem;">
+                <h3 class="member-name">${koor.nama}</h3>
+                <p class="member-role">${koor.jabatan}</p>
+                </div>
+            </div>
+            `;
+        }
+
+        if (anggotaLain.length > 0) {
+            container.innerHTML += `
+            <div class="anggota-wrapper" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;">
+                ${anggotaLain.map(member => `
+                <div class="member-card" style="width: 240px;">
+                    <img src="${member.foto}" alt="${member.nama}" style="width: 100%; border-radius: 15px; object-fit: cover; margin-bottom: 1rem;">
+                    <h3 class="member-name">${member.nama}</h3>
+                    <p class="member-role">${member.jabatan}</p>
+                </div>
+                `).join("")}
+            </div>
+            `;
+        }
+        }
+
+        function nextDivisi() {
+            currentDivisi = (currentDivisi + 1) % divisiData.length;
+            renderDivisi(currentDivisi);
+        }
+
+        function prevDivisi() {
+            currentDivisi = (currentDivisi - 1 + divisiData.length) % divisiData.length;
+            renderDivisi(currentDivisi);
+        }
+
+        window.addEventListener("load", () => {
+            renderDivisi(currentDivisi);
+        });
+
+
+        window.addEventListener("load", () => {
+            renderDivisi(currentDivisi);
+        });
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.05)';
+            }
+        });
+
+        function toggleSocialLinks() {
+            const links = document.getElementById('social-links');
+            links.classList.toggle('hidden');
+        }
+    </script>
+<!-- Floating Bubble Sosmed -->
+<div class="social-bubble">
+  <button onclick="toggleSocialLinks()">💬</button>
+  <div id="social-links" class="social-links hidden">
+    <a href="https://www.instagram.com/bumantaranggana.journey?utm_source=ig_web_button_share_sheet&igsh=anB2YW82aWE1MzBl" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@kkn.bumantaranggana86?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a>
+  </div>
+</div>
+
+</body>
+</html>
